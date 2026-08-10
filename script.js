@@ -216,6 +216,9 @@
   /* --------------------------- Product rendering -------------------------- */
 
   const productGrid = $('#productGrid');
+  const mensGrid = $('#mensGrid');
+  const womensGrid = $('#womensGrid');
+  const kidsGrid = $('#kidsGrid');
 
   function productCard(p) {
     const tag = p.tag
@@ -252,6 +255,13 @@
     productGrid.innerHTML = list.map(productCard).join('');
   }
 
+  function renderCategoryGrids() {
+    const products = getProducts();
+    if (mensGrid) mensGrid.innerHTML = products.filter(p => p.category === 'Men').map(productCard).join('');
+    if (womensGrid) womensGrid.innerHTML = products.filter(p => p.category === 'Dress').map(productCard).join('');
+    if (kidsGrid) kidsGrid.innerHTML = products.filter(p => p.category === 'Kids').map(productCard).join('');
+  }
+
   productGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-add]');
     if (btn) {
@@ -274,6 +284,32 @@
       e.preventDefault();
       openProductModal(Number(e.target.dataset.view));
     }
+  });
+
+  [mensGrid, womensGrid, kidsGrid].forEach(grid => {
+    if (!grid) return;
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-add]');
+      if (btn) {
+        addToCart(Number(btn.dataset.add));
+        const original = btn.innerHTML;
+        btn.classList.add('added');
+        btn.textContent = 'Added ✓';
+        setTimeout(() => {
+          btn.classList.remove('added');
+          btn.innerHTML = original;
+        }, 1200);
+        return;
+      }
+      const card = e.target.closest('[data-view]');
+      if (card) openProductModal(Number(card.dataset.view));
+    });
+    grid.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-view]')) {
+        e.preventDefault();
+        openProductModal(Number(e.target.dataset.view));
+      }
+    });
   });
 
   /* --------------------------- Product detail view -------------------------- */
@@ -1124,6 +1160,7 @@
 
   $('#year').textContent = new Date().getFullYear();
   renderProducts(getProducts());
+  renderCategoryGrids();
   renderMarquee();
   renderCompare();
   fillBookingWatch();
