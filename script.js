@@ -98,11 +98,24 @@
     { id: 8, name: 'Aurora Rose Gold Slim', brand: 'AURUM', category: 'Dress', price: 21400, oldPrice: null, movement: 'Mechanical', glass: 'Domed Sapphire', water: '50M', strap: 'Alligator Leather', case: 'rose', tag: 'New Arrival', image: px(35080771) }
   ];
 
+  const DATA_VERSION = 2;
+
   function getProducts() {
-    return store.get(K.PRODUCTS, PRODUCT_DEFAULTS);
+    const raw = localStorage.getItem(K.PRODUCTS);
+    if (raw) {
+      try {
+        const data = JSON.parse(raw);
+        if (data && data.__v === DATA_VERSION && Array.isArray(data.products)) {
+          return data.products;
+        }
+      } catch (e) {}
+    }
+    const list = PRODUCT_DEFAULTS.map((p) => Object.assign({}, p));
+    store.set(K.PRODUCTS, { __v: DATA_VERSION, products: list });
+    return list;
   }
   function saveProducts(list) {
-    store.set(K.PRODUCTS, list);
+    store.set(K.PRODUCTS, { __v: DATA_VERSION, products: list });
   }
   function getProduct(id) {
     return getProducts().find((p) => String(p.id) === String(id));
