@@ -982,7 +982,7 @@
 
   /* ------------------------------- Scrollspy ------------------------------ */
 
-  const navSections = $$('main section[id]');
+  const navSections = $$('main section[id]').filter((sec) => !sec.hidden);
 
   function updateActiveLink() {
     const pos = window.scrollY + 120;
