@@ -674,8 +674,6 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   outline: none;
 }
 .admin-login-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-.admin-hint { font-size: 0.8rem !important; margin: 16px 0 0 !important; }
-.admin-hint code { background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 0.82rem; }
 .admin-error { color: var(--danger) !important; margin: 14px 0 0 !important; font-size: 0.85rem; }
 
 .admin-dash { animation: fadeUp 0.45s ease both; }

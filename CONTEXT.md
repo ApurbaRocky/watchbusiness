@@ -176,7 +176,8 @@ pCategory, pImage, pCase, pMovement, pGlass, pWater, pStrap, pTag`). Nav: `navTo
 
 ## 6. Admin Access (demo)
 
-- **Passcode:** `aurum2024` (shown on the login card as a hint)
+- **Passcode:** `aurum2024` (hidden from the page — no hint is shown on the login card)
+- **Access:** footer lock icon (🔒) or keyboard shortcut `Ctrl + Shift + A`
 - Gate stored in `sessionStorage['aurum-admin']`
 - Wrong passcode → red error text; correct → dashboard (stats + add product + manage list)
 
