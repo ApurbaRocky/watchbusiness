@@ -846,6 +846,25 @@
     adminLogin.hidden = false;
   }
 
+  function showAdminPanel() {
+    const sec = $('#admin');
+    if (!sec) return;
+    sec.hidden = false;
+    requestAnimationFrame(() => {
+      sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!isAdmin()) $('#adminPassword').focus();
+    });
+  }
+
+  $('#adminTrigger').addEventListener('click', showAdminPanel);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
+      e.preventDefault();
+      showAdminPanel();
+    }
+  });
+
   function renderManage() {
     const list = getProducts();
     $('#manageCount').textContent = list.length;
