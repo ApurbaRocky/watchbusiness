@@ -20,8 +20,8 @@ Current feature set (already implemented in code):
 |---|---------|----------|
 | 1 | Header / Nav | Sticky glass header, brand logo, desktop nav, mobile hamburger drawer, cart icon with live badge, real-time search box, Day/Night theme toggle |
 | 2 | Hero | Serif headline, animated SVG watch with rotating hands, floating spec chips, Shop Now / Explore Collection CTAs, trust stats |
-| 3 | Product Showcase | Responsive grid, watch image, brand, title, spec chips, BDT price (+ strikethrough old price), Add to Cart |
-| 4 | Cart Drawer | Slide-out right panel, qty stepper (+/−), remove item, subtotal & total in BDT, free delivery, "Proceed to Checkout" |
+| 3 | Product Showcase | Responsive grid, **real watch photo**, brand, title, spec chips, BDT price (+ strikethrough old price), **COD badge**, Add to Cart, click card → product detail view |
+| 4 | Cart Drawer | Slide-out right panel, qty stepper (+/−), remove item, subtotal & total in BDT, free delivery, **COD note**, "Proceed to Checkout" |
 | 5 | Checkout Modal | Itemised order summary, total payable, Place Order → writes to simulated order log, success screen, toast |
 | 6 | Compare | 3 product dropdowns (A/B/C), side-by-side table (Movement, Glass, Water resistance, Strap, Price, Action) |
 | 7 | Payment | bKash, Nagad (personal: **01858-533944**), Rocket, Upay, Visa/Mastercard, **Cash on Delivery (COD)** cards + secure checkout note |
@@ -29,6 +29,7 @@ Current feature set (already implemented in code):
 | 9 | Admin (simulated) | Passcode gate, sales summary stats (orders, revenue, units, avg order), add-product form, manage/delete product list, **recent orders log** |
 | 10 | Footer | Quick links, Bangladesh contact (phone/email/address), social icons, payment badges, copyright |
 | 11 | Product Marquee | Auto-scrolling ticker above the collection showing **every product** (name + BDT price + tag); pauses on hover, updates on add/delete |
+| 12 | Product Detail View | One dynamic modal reused for **every** product (single JS loop): large photo, price + old price, rating, spec table, qty stepper, Add to Cart, **Buy Now (COD)**, delivery/payment chips, 3 related items |
 
 ---
 
@@ -120,7 +121,9 @@ Each contains `{ case, caseDark, dial, hand, strap, accent, bg, marker }` used t
 draw a data-URI watch SVG via `watchSvg(variant, brand)`.
 
 `resolveImage(p)` → returns `p.image` if set, otherwise the generated SVG.
-(Planned enhancement: swap default products to **Unsplash photo URLs** — see §7.)
+The 8 default products ship with **real Pexels photo URLs** (verified HTTP 200) set in
+their `image` field; the SVG generator remains the fallback for admin-added products
+with no image URL. Image helper: `px(id)` → `https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=800`.
 
 ### 4.3 Review schema
 ```js
@@ -179,37 +182,32 @@ pCategory, pImage, pCase, pMovement, pGlass, pWater, pStrap, pTag`). Nav: `navTo
 
 ---
 
-## 7. Enhancement Roadmap (from latest client request)
+## 7. Implementation Notes (latest client request — DONE)
 
-These changes are **planned/queued** — the code currently uses the SVG generator.
-
-### 7.1 Famous watch images from Unsplash
-- Add an `image` URL to each of the 8 default products using **real** `images.unsplash.com`
-  photo IDs (format: `https://images.unsplash.com/<photo-id>?w=640&q=80&auto=format&fit=crop`).
-- Keep `resolveImage()` logic: `p.image` wins; SVG generator stays as fallback for
-  admin-added products with no URL.
-- **Status:** photo IDs still to be verified (network verification was blocked in the
-  working environment — EPERM on `Invoke-WebRequest`). Verify IDs before committing.
+### 7.1 Real watch images (Pexels)
+- All 8 default products now ship with **verified** `images.pexels.com` photo URLs
+  (HTTP 200 checked), matched to each product's style (gold dress, black chronograph,
+  rose gold, steel diver, blue-dial GMT, etc.). See §4.2 and `px(id)` helper.
+- `resolveImage()` keeps `p.image` → SVG-generator fallback for admin-added products
+  without a URL.
 
 ### 7.2 Professional background
-- Add a subtle fixed/body background layer (deep gradient + faint radial glow + optional
-  very-low-opacity texture image) behind hero and sections, kept above `--bg` but below
-  all content. Add a corresponding light-mode variant.
+- A fixed `body::before` layer (deep radial gold glows) sits above `--bg` but below all
+  content; light-mode variant via `--hero-glow-a/b` variables.
 
 ### 7.3 COD (Cash on Delivery) emphasis
-- COD card already exists in Payment section — add:
-  - `COD` badge on each product card (`product-tag` variant)
-  - COD line inside cart drawer & checkout summary
-  - Delivery methods list (Home Delivery / COD / pickup) on the detail view
+- **COD badge** on every product card (`.product-cod`),
+- COD line inside cart drawer (`cart-cod-note`),
+- "Buy Now — Cash on Delivery" button on the product detail view,
+- Payment card + checkout note already show COD.
 
 ### 7.4 Single product page (loop view for every product)
-One dynamic view, reused for **every** product (single loop in JS):
-- New `#productModal` (same overlay pattern as checkout modal) built with a loop over
-  product data when a card is clicked or a "Quick View" button is pressed.
-- Content: large image, name, brand, price + old price, rating, spec table (Movement,
-  Glass, Water resistance, Strap, Case), quantity stepper, "Add to Cart",
-  "Buy Now (COD)" button, delivery/payment info chips, and 3 "Related products".
-- Wire: `productGrid` click → closest `[data-view]` → `openProductModal(id)`.
+- New `#productModal` reused for **every** product — `openProductModal(id)` builds the
+  view from product data: large photo, brand, name, rating, price + old price + save,
+  spec table (Movement, Glass, Water resistance, Strap, Case finish, Category),
+  qty stepper, **Add to Cart**, **Buy Now (COD)**, delivery/payment chips, and
+  **3 related products**.
+- Wiring: `productGrid` click / Enter on `[data-view]` → `openProductModal(id)`.
 
 ---
 

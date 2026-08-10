@@ -85,15 +85,17 @@
 
   /* ------------------------------ Product data ---------------------------- */
 
+  const px = (id) => 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=800';
+
   const PRODUCT_DEFAULTS = [
-    { id: 1, name: 'Classic Heritage Gold', brand: 'AURUM', category: 'Dress', price: 18500, oldPrice: 21500, movement: 'Automatic', glass: 'Sapphire', water: '50M', strap: 'Italian Leather', case: 'gold', tag: 'Best Seller' },
-    { id: 2, name: 'Noir Royale Chronograph', brand: 'AURUM', category: 'Chronograph', price: 24900, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '100M', strap: 'Alligator Leather', case: 'black', tag: 'Limited' },
-    { id: 3, name: 'Pearl Court Diamond', brand: 'AURUM', category: 'Dress', price: 32000, oldPrice: 37000, movement: 'Mechanical', glass: 'Sapphire', water: '30M', strap: 'Italian Leather', case: 'rose', tag: 'New Arrival' },
-    { id: 4, name: 'Steelcore Diver 300', brand: 'AURUM', category: 'Diver', price: 15750, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '300M', strap: 'Stainless Steel', case: 'silver', tag: null },
-    { id: 5, name: 'Rose Élégance 32mm', brand: 'AURUM', category: 'Dress', price: 12200, oldPrice: 14200, movement: 'Quartz', glass: 'Mineral', water: '30M', strap: 'Italian Leather', case: 'pearl', tag: 'Gift Pick' },
-    { id: 6, name: 'Midnight Navigator GMT', brand: 'AURUM', category: 'GMT', price: 28600, oldPrice: null, movement: 'Automatic', glass: 'Sapphire', water: '200M', strap: 'Brushed Steel', case: 'navy', tag: 'Hot' },
-    { id: 7, name: 'Heritage Silver Edition', brand: 'AURUM', category: 'Quartz', price: 9850, oldPrice: 11800, movement: 'Quartz', glass: 'Mineral', water: '50M', strap: 'Stainless Steel', case: 'bronze', tag: null },
-    { id: 8, name: 'Aurora Rose Gold Slim', brand: 'AURUM', category: 'Dress', price: 21400, oldPrice: null, movement: 'Mechanical', glass: 'Domed Sapphire', water: '50M', strap: 'Alligator Leather', case: 'rose', tag: 'New Arrival' }
+    { id: 1, name: 'Classic Heritage Gold', brand: 'AURUM', category: 'Dress', price: 18500, oldPrice: 21500, movement: 'Automatic', glass: 'Sapphire', water: '50M', strap: 'Italian Leather', case: 'gold', tag: 'Best Seller', image: px(18271276) },
+    { id: 2, name: 'Noir Royale Chronograph', brand: 'AURUM', category: 'Chronograph', price: 24900, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '100M', strap: 'Alligator Leather', case: 'black', tag: 'Limited', image: px(28977357) },
+    { id: 3, name: 'Pearl Court Diamond', brand: 'AURUM', category: 'Dress', price: 32000, oldPrice: 37000, movement: 'Mechanical', glass: 'Sapphire', water: '30M', strap: 'Italian Leather', case: 'rose', tag: 'New Arrival', image: px(16841001) },
+    { id: 4, name: 'Steelcore Diver 300', brand: 'AURUM', category: 'Diver', price: 15750, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '300M', strap: 'Stainless Steel', case: 'silver', tag: null, image: px(33684303) },
+    { id: 5, name: 'Rose Élégance 32mm', brand: 'AURUM', category: 'Dress', price: 12200, oldPrice: 14200, movement: 'Quartz', glass: 'Mineral', water: '30M', strap: 'Italian Leather', case: 'pearl', tag: 'Gift Pick', image: px(37050003) },
+    { id: 6, name: 'Midnight Navigator GMT', brand: 'AURUM', category: 'GMT', price: 28600, oldPrice: null, movement: 'Automatic', glass: 'Sapphire', water: '200M', strap: 'Brushed Steel', case: 'navy', tag: 'Hot', image: px(35164843) },
+    { id: 7, name: 'Heritage Silver Edition', brand: 'AURUM', category: 'Quartz', price: 9850, oldPrice: 11800, movement: 'Quartz', glass: 'Mineral', water: '50M', strap: 'Stainless Steel', case: 'bronze', tag: null, image: px(16739804) },
+    { id: 8, name: 'Aurora Rose Gold Slim', brand: 'AURUM', category: 'Dress', price: 21400, oldPrice: null, movement: 'Mechanical', glass: 'Domed Sapphire', water: '50M', strap: 'Alligator Leather', case: 'rose', tag: 'New Arrival', image: px(35080771) }
   ];
 
   function getProducts() {
@@ -183,9 +185,10 @@
       : '';
     const old = p.oldPrice ? '<span class="product-old">' + fmt(p.oldPrice) + '</span>' : '';
     return (
-      '<article class="product-card" data-id="' + p.id + '">' +
+      '<article class="product-card" data-id="' + p.id + '" data-view="' + p.id + '" role="button" tabindex="0" aria-label="View ' + p.name + '">' +
         '<div class="product-media">' + tag +
           '<img src="' + resolveImage(p) + '" alt="' + p.name + ' by ' + p.brand + '" loading="lazy">' +
+          '<span class="product-cod">COD</span>' +
         '</div>' +
         '<div class="product-body">' +
           '<span class="product-brand">' + p.brand + '</span>' +
@@ -213,15 +216,161 @@
 
   productGrid.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-add]');
-    if (!btn) return;
-    addToCart(Number(btn.dataset.add));
-    const original = btn.innerHTML;
-    btn.classList.add('added');
-    btn.textContent = 'Added ✓';
-    setTimeout(() => {
-      btn.classList.remove('added');
-      btn.innerHTML = original;
-    }, 1200);
+    if (btn) {
+      addToCart(Number(btn.dataset.add));
+      const original = btn.innerHTML;
+      btn.classList.add('added');
+      btn.textContent = 'Added ✓';
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.innerHTML = original;
+      }, 1200);
+      return;
+    }
+    const card = e.target.closest('[data-view]');
+    if (card) openProductModal(Number(card.dataset.view));
+  });
+
+  productGrid.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('[data-view]')) {
+      e.preventDefault();
+      openProductModal(Number(e.target.dataset.view));
+    }
+  });
+
+  /* --------------------------- Product detail view -------------------------- */
+
+  const productModal = $('#productModal');
+  const productModalBody = $('#productModalBody');
+  let productModalId = null;
+  let productModalQty = 1;
+
+  const CASE_LABELS = {
+    gold: '18K Gold Plated',
+    rose: 'Rose Gold Plated',
+    silver: 'Brushed Silver',
+    navy: 'Navy Dial Steel',
+    black: 'Matte Black Steel',
+    pearl: 'Pearl White',
+    bronze: 'Antique Bronze'
+  };
+
+  function productRating(p) {
+    const rating = (4.3 + (p.id % 7) * 0.1).toFixed(1);
+    return { rating, count: 84 + p.id * 13 };
+  }
+
+  function paintModalQty() {
+    $('#pmQty').textContent = productModalQty;
+  }
+
+  function openProductModal(id) {
+    const p = getProduct(id);
+    if (!p) return;
+    productModalId = id;
+    productModalQty = 1;
+    productModalBody.innerHTML = buildProductModal(p);
+    paintModalQty();
+    productModal.hidden = false;
+    requestAnimationFrame(() => productModal.classList.add('show'));
+  }
+
+  function closeProductModal() {
+    productModal.classList.remove('show');
+    setTimeout(() => { productModal.hidden = true; }, 300);
+  }
+
+  function buildProductModal(p) {
+    const { rating, count } = productRating(p);
+    const old = p.oldPrice ? '<span class="product-old">' + fmt(p.oldPrice) + '</span>' : '';
+    const save = p.oldPrice ? '<span class="pm-save">Save ' + fmt(p.oldPrice - p.price) + '</span>' : '';
+    const tag = p.tag
+      ? '<span class="product-tag' + (p.tag === 'New Arrival' ? ' outline' : '') + '">' + p.tag + '</span>'
+      : '';
+
+    const specRows = [
+      ['Movement', p.movement],
+      ['Glass', p.glass],
+      ['Water resistance', p.water],
+      ['Strap material', p.strap],
+      ['Case finish', CASE_LABELS[p.case] || p.case],
+      ['Category', p.category]
+    ].map((pair) => '<tr><th>' + pair[0] + '</th><td>' + pair[1] + '</td></tr>').join('');
+
+    const related = getProducts()
+      .filter((x) => String(x.id) !== String(p.id))
+      .sort((a, b) => (b.category === p.category ? 1 : 0) - (a.category === p.category ? 1 : 0))
+      .slice(0, 3);
+    const relatedHTML = related.length
+      ? '<div class="pm-related"><h4>Related timepieces</h4><div class="pm-related-grid">' +
+        related.map((r) =>
+          '<button type="button" class="pm-related-item" data-open="' + r.id + '">' +
+            '<img src="' + resolveImage(r) + '" alt="" loading="lazy">' +
+            '<span>' + r.name + '</span>' +
+            '<strong>' + fmt(r.price) + '</strong>' +
+          '</button>'
+        ).join('') + '</div></div>'
+      : '';
+
+    return (
+      '<div class="product-modal">' +
+        '<div class="pm-media">' + tag +
+          '<img src="' + resolveImage(p) + '" alt="' + p.name + '">' +
+        '</div>' +
+        '<div class="pm-info">' +
+          '<span class="product-brand">' + p.brand + '</span>' +
+          '<h2 class="pm-name" id="productModalTitle">' + p.name + '</h2>' +
+          '<div class="pm-rating">' + starHTML(Math.round(rating)) +
+            '<span>' + rating + ' · ' + count + ' reviews</span>' +
+          '</div>' +
+          '<div class="pm-price-row"><span class="product-price pm-price">' + fmt(p.price) + '</span>' + old + save + '</div>' +
+          '<p class="pm-desc">A signature ' + p.brand + ' timepiece finished by hand — ' + p.glass.toLowerCase() +
+            ' crystal, ' + p.movement.toLowerCase() + ' movement and a ' + p.strap.toLowerCase() + ' strap. ' +
+            'Delivered with a certificate of authenticity and 5-year warranty.</p>' +
+          '<div class="pm-specs"><table><tbody>' + specRows + '</tbody></table></div>' +
+          '<div class="pm-buy">' +
+            '<div class="qty-stepper pm-qty">' +
+              '<button type="button" data-pqdec aria-label="Decrease quantity">−</button>' +
+              '<span id="pmQty">1</span>' +
+              '<button type="button" data-pqinc aria-label="Increase quantity">+</button>' +
+            '</div>' +
+            '<button class="btn btn-primary" data-padd>Add to Cart</button>' +
+          '</div>' +
+          '<button class="btn btn-ghost btn-block" data-pbuy>Buy Now — Cash on Delivery</button>' +
+          '<div class="pm-chips">' +
+            '<span class="pm-chip">Free home delivery</span>' +
+            '<span class="pm-chip">Cash on delivery</span>' +
+            '<span class="pm-chip">7-day exchange</span>' +
+          '</div>' +
+          '<div class="pm-chips pm-pay">' +
+            '<span class="pm-chip">bKash</span><span class="pm-chip">Nagad</span><span class="pm-chip">Rocket</span><span class="pm-chip">Visa/Mastercard</span>' +
+          '</div>' +
+        '</div>' +
+        relatedHTML +
+      '</div>'
+    );
+  }
+
+  productModalBody.addEventListener('click', (e) => {
+    const dec = e.target.closest('[data-pqdec]');
+    const inc = e.target.closest('[data-pqinc]');
+    if (dec) { productModalQty = Math.max(1, productModalQty - 1); paintModalQty(); }
+    if (inc) { productModalQty += 1; paintModalQty(); }
+    const addBtn = e.target.closest('[data-padd]');
+    if (addBtn && productModalId) addToCart(productModalId, productModalQty);
+    const buyBtn = e.target.closest('[data-pbuy]');
+    if (buyBtn && productModalId) {
+      addToCart(productModalId, productModalQty);
+      closeProductModal();
+      openCheckout();
+    }
+    const openBtn = e.target.closest('[data-open]');
+    if (openBtn) openProductModal(Number(openBtn.dataset.open));
+  });
+
+  $('#productModalClose').addEventListener('click', closeProductModal);
+  productModal.addEventListener('click', (e) => {
+    if (e.target === productModal) closeProductModal();
   });
 
   /* -------------------------------- Marquee -------------------------------- */
@@ -494,6 +643,7 @@
     if (e.key === 'Escape') {
       closeCart();
       closeModal();
+      closeProductModal();
     }
   });
 

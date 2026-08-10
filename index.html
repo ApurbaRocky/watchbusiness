@@ -556,8 +556,10 @@
       <div class="cart-summary">
         <div class="cart-row"><span>Subtotal</span><strong id="cartSubtotal">৳ 0</strong></div>
         <div class="cart-row"><span>Delivery</span><strong>Free</strong></div>
+        <div class="cart-row"><span>Payment</span><strong>COD available</strong></div>
         <div class="cart-row cart-total"><span>Total</span><strong id="cartTotal">৳ 0</strong></div>
       </div>
+      <p class="cart-cod-note">Cash on Delivery — pay in cash when your watch arrives.</p>
       <button class="btn btn-primary btn-block" id="checkoutBtn" type="button">Proceed to Checkout</button>
     </div>
   </aside>
@@ -574,11 +576,18 @@
         <span>Total payable</span>
         <strong id="checkoutTotal">৳ 0</strong>
       </div>
-      <p class="checkout-note">Pay via bKash, Nagad, Rocket, Upay, card or Cash on Delivery after confirmation.</p>
+      <p class="checkout-note">Pay via <strong>bKash / Nagad (01858-533944)</strong>, Rocket, Upay, card — or choose <strong>Cash on Delivery</strong> and pay when the watch arrives.</p>
       <div class="checkout-actions">
         <button class="btn btn-ghost" id="checkoutBack" type="button">Back to cart</button>
         <button class="btn btn-primary" id="placeOrderBtn" type="button">Place Order</button>
       </div>
+    </div>
+  </div>
+
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle" hidden>
+    <div class="modal-card modal-card-lg">
+      <button class="icon-btn modal-close" id="productModalClose" type="button" aria-label="Close">×</button>
+      <div id="productModalBody"></div>
     </div>
   </div>
 

@@ -86,6 +86,17 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(52% 42% at 82% -8%, var(--hero-glow-a), transparent 62%),
+    radial-gradient(46% 40% at 8% 108%, var(--hero-glow-b), transparent 60%);
+  pointer-events: none;
+}
+
 img, svg { display: block; max-width: 100%; }
 
 a { color: inherit; text-decoration: none; }
@@ -409,6 +420,19 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   text-transform: uppercase;
 }
 .product-tag.outline { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.product-cod {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--success);
+  color: #06281a;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
 
 .product-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; gap: 12px; }
 .product-brand { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
@@ -811,6 +835,15 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
 .cart-row strong { color: var(--text); }
 .cart-total { border-top: 1px solid var(--border-soft); margin-top: 6px; padding-top: 12px; font-size: 1rem; }
 .cart-total strong { font-family: var(--font-serif); font-size: 1.3rem; color: var(--accent); }
+.cart-cod-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-cod-note::before { content: "✓"; color: var(--success); font-weight: 800; }
 
 /* ------------------------------ Overlay / Modal --------------------------- */
 
@@ -954,6 +987,60 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
 .ord-id { color: var(--accent); font-weight: 700; font-size: 0.78rem; }
 .ord-amt { color: var(--accent); font-weight: 700; }
 
+/* --------------------------- Product detail modal -------------------------- */
+
+.modal-card-lg { width: min(840px, 100%); }
+.product-modal { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 28px; align-items: start; }
+.pm-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius);
+  background: var(--card-grad), var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.pm-media img { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; }
+.pm-info { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.pm-name { font-family: var(--font-serif); font-size: 1.7rem; color: var(--heading); line-height: 1.15; }
+.pm-rating { display: flex; align-items: center; gap: 8px; }
+.pm-rating .review-stars { color: var(--accent); font-size: 0.95rem; }
+.pm-rating span { font-size: 0.82rem; color: var(--muted); }
+.pm-price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.pm-price { font-size: 1.7rem; }
+.pm-save { font-size: 0.8rem; font-weight: 800; color: var(--success); }
+.pm-desc { color: var(--muted); font-size: 0.92rem; }
+.pm-specs table { width: 100%; border-collapse: collapse; }
+.pm-specs th, .pm-specs td { padding: 8px 6px; border-bottom: 1px solid var(--border-soft); text-align: left; font-size: 0.86rem; }
+.pm-specs th { color: var(--muted); font-weight: 600; width: 46%; }
+.pm-specs td { color: var(--heading); font-weight: 700; }
+.pm-specs tr:last-child th, .pm-specs tr:last-child td { border-bottom: none; }
+.pm-buy { display: flex; gap: 12px; align-items: stretch; margin-top: 4px; }
+.pm-buy .btn { flex: 1; }
+.pm-qty { align-self: center; }
+.pm-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pm-chip { font-size: 0.72rem; font-weight: 700; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; }
+.pm-pay .pm-chip { color: var(--accent); border-color: var(--accent); }
+.pm-related { grid-column: 1 / -1; margin-top: 6px; padding-top: 22px; border-top: 1px solid var(--border); }
+.pm-related h4 { font-family: var(--font-serif); font-size: 1.05rem; color: var(--heading); margin-bottom: 14px; }
+.pm-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.pm-related-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-2);
+  text-align: left;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.pm-related-item:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+.pm-related-item img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: var(--card-grad), var(--surface-3); border-radius: 8px; }
+.pm-related-item span { font-size: 0.82rem; font-weight: 700; color: var(--heading); line-height: 1.3; }
+.pm-related-item strong { font-size: 0.85rem; color: var(--accent); font-weight: 800; }
+
 /* ------------------------------- Responsive ------------------------------- */
 
 @media (max-width: 1024px) {
@@ -967,6 +1054,9 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   .section { padding: 72px 0; }
   .main-nav { display: none; }
   .nav-toggle { display: inline-flex; }
+
+  .product-modal { grid-template-columns: 1fr; gap: 20px; }
+  .pm-media { aspect-ratio: 4 / 3; }
 
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-copy { order: 2; }
@@ -1003,6 +1093,10 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
 
   .section-head { margin-bottom: 38px; }
   .product-grid { gap: 18px; }
+  .pm-buy { flex-direction: column; }
+  .pm-qty { align-self: stretch; }
+  .pm-qty .qty-stepper { width: 100%; justify-content: space-between; }
+  .pm-qty .qty-stepper button { width: 44px; height: 44px; }
   .reviews-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 30px; }
   .footer-bottom { justify-content: center; text-align: center; }
