@@ -41,6 +41,7 @@
           <a href="#compare" class="nav-link">Compare</a>
           <a href="#payment" class="nav-link">Payment</a>
           <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#booking" class="nav-link">Book a Watch</a>
         </nav>
 
         <div class="header-actions">
@@ -86,6 +87,7 @@
       <a href="#compare" class="nav-link">Compare</a>
       <a href="#payment" class="nav-link">Payment</a>
       <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#booking" class="nav-link">Book a Watch</a>
     </div>
   </header>
 
@@ -320,6 +322,64 @@
       </div>
     </section>
 
+    <section class="section" id="booking">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Reserve Yours</span>
+          <h2 class="section-title">Book a Watch</h2>
+          <p class="section-sub">Send a booking request and our team will call you to confirm availability.</p>
+        </div>
+
+        <div class="booking-grid">
+          <div class="booking-info">
+            <h3>Why book with AURUM?</h3>
+            <ul class="booking-perks">
+              <li>Hold your chosen timepiece for 48 hours</li>
+              <li>Free home delivery across Chattogram</li>
+              <li>Cash on delivery — pay when it arrives</li>
+              <li>7-day exchange &amp; 5-year warranty</li>
+            </ul>
+            <div class="booking-note">
+              <strong>Prefer to talk?</strong>
+              <span>Call us on <a href="tel:+8801712345678">+880 1712-345678</a></span>
+            </div>
+          </div>
+
+          <form id="bookingForm" class="booking-form" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="bkName">Your name *</label>
+                <input type="text" id="bkName" placeholder="e.g. Rahim Uddin" required>
+              </div>
+              <div class="field">
+                <label for="bkPhone">Phone number *</label>
+                <input type="tel" id="bkPhone" placeholder="e.g. 01858-533944" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="bkWatch">Choose your watch *</label>
+              <select id="bkWatch" required></select>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="bkDate">Preferred date</label>
+                <input type="date" id="bkDate">
+              </div>
+              <div class="field">
+                <label for="bkQty">Quantity</label>
+                <input type="number" id="bkQty" min="1" value="1">
+              </div>
+            </div>
+            <div class="field">
+              <label for="bkNotes">Notes</label>
+              <textarea id="bkNotes" rows="3" placeholder="Delivery address, special requests… (optional)"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Request Booking</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="admin" hidden>
       <div class="container">
         <div class="section-head">
@@ -450,6 +510,10 @@
                   <label for="pTag">Badge tag</label>
                   <input type="text" id="pTag" placeholder="e.g. New Arrival (optional)">
                 </div>
+                <div class="field">
+                  <label for="pDescription">Description</label>
+                  <textarea id="pDescription" rows="3" placeholder="Short product description (optional)"></textarea>
+                </div>
                 <button type="submit" class="btn btn-primary btn-block">Add to Collection</button>
               </form>
             </div>
@@ -462,6 +526,11 @@
             <div class="admin-panel admin-orders">
               <h3 class="panel-title">Recent orders <span class="panel-count" id="ordersCount">0</span></h3>
               <div class="orders-list" id="ordersList"></div>
+            </div>
+
+            <div class="admin-panel admin-orders">
+              <h3 class="panel-title">Booking requests <span class="panel-count" id="bkCount">0</span></h3>
+              <div class="orders-list" id="bookingList"></div>
             </div>
           </div>
         </div>
@@ -498,6 +567,7 @@
           <a href="#compare">Compare Watches</a>
           <a href="#payment">Payment Options</a>
           <a href="#reviews">Reviews</a>
+          <a href="#booking">Book a Watch</a>
         </div>
 
         <div class="footer-col">

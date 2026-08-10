@@ -12,6 +12,7 @@
     PRODUCTS: 'aurum-products',
     REVIEWS: 'aurum-reviews',
     ORDERS: 'aurum-orders',
+    BOOKINGS: 'aurum-bookings',
     ADMIN: 'aurum-admin'
   };
 
@@ -88,17 +89,17 @@
   const px = (id) => 'https://images.pexels.com/photos/' + id + '/pexels-photo-' + id + '.jpeg?auto=compress&cs=tinysrgb&w=800';
 
   const PRODUCT_DEFAULTS = [
-    { id: 1, name: 'Classic Heritage Gold', brand: 'AURUM', category: 'Dress', price: 18500, oldPrice: 21500, movement: 'Automatic', glass: 'Sapphire', water: '50M', strap: 'Italian Leather', case: 'gold', tag: 'Best Seller', image: px(18271276) },
-    { id: 2, name: 'Noir Royale Chronograph', brand: 'AURUM', category: 'Chronograph', price: 24900, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '100M', strap: 'Alligator Leather', case: 'black', tag: 'Limited', image: px(28977357) },
-    { id: 3, name: 'Pearl Court Diamond', brand: 'AURUM', category: 'Dress', price: 32000, oldPrice: 37000, movement: 'Mechanical', glass: 'Sapphire', water: '30M', strap: 'Italian Leather', case: 'rose', tag: 'New Arrival', image: px(16841001) },
-    { id: 4, name: 'Steelcore Diver 300', brand: 'AURUM', category: 'Diver', price: 15750, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '300M', strap: 'Stainless Steel', case: 'silver', tag: null, image: px(33684303) },
-    { id: 5, name: 'Rose Élégance 32mm', brand: 'AURUM', category: 'Dress', price: 12200, oldPrice: 14200, movement: 'Quartz', glass: 'Mineral', water: '30M', strap: 'Italian Leather', case: 'pearl', tag: 'Gift Pick', image: px(37050003) },
-    { id: 6, name: 'Midnight Navigator GMT', brand: 'AURUM', category: 'GMT', price: 28600, oldPrice: null, movement: 'Automatic', glass: 'Sapphire', water: '200M', strap: 'Brushed Steel', case: 'navy', tag: 'Hot', image: px(35164843) },
-    { id: 7, name: 'Heritage Silver Edition', brand: 'AURUM', category: 'Quartz', price: 9850, oldPrice: 11800, movement: 'Quartz', glass: 'Mineral', water: '50M', strap: 'Stainless Steel', case: 'bronze', tag: null, image: px(16739804) },
-    { id: 8, name: 'Aurora Rose Gold Slim', brand: 'AURUM', category: 'Dress', price: 21400, oldPrice: null, movement: 'Mechanical', glass: 'Domed Sapphire', water: '50M', strap: 'Alligator Leather', case: 'rose', tag: 'New Arrival', image: px(35080771) }
+    { id: 1, name: 'Classic Heritage Gold', brand: 'AURUM', category: 'Dress', price: 18500, oldPrice: 21500, movement: 'Automatic', glass: 'Sapphire', water: '50M', strap: 'Italian Leather', case: 'gold', tag: 'Best Seller', image: px(18271276), description: 'A timeless dress watch in warm 18k gold plating with a rich champagne dial. Powered by a self-winding automatic movement and finished with an Italian leather strap — made for evenings that matter.' },
+    { id: 2, name: 'Noir Royale Chronograph', brand: 'AURUM', category: 'Chronograph', price: 24900, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '100M', strap: 'Alligator Leather', case: 'black', tag: 'Limited', image: px(28977357), description: 'A commanding blacked-out chronograph with three sub-dials and a domed sapphire crystal. Precision automatic movement, alligator leather strap and 100M water resistance for a bold, confident presence.' },
+    { id: 3, name: 'Pearl Court Diamond', brand: 'AURUM', category: 'Dress', price: 32000, oldPrice: 37000, movement: 'Mechanical', glass: 'Sapphire', water: '30M', strap: 'Italian Leather', case: 'rose', tag: 'New Arrival', image: px(16841001), description: 'Radiant rose-gold case with a pearl-white dial and hand-finished details. A hand-wound mechanical movement sits at its heart — a refined statement for formal occasions.' },
+    { id: 4, name: 'Steelcore Diver 300', brand: 'AURUM', category: 'Diver', price: 15750, oldPrice: null, movement: 'Automatic', glass: 'Domed Sapphire', water: '300M', strap: 'Stainless Steel', case: 'silver', tag: null, image: px(33684303), description: 'A true diver built for 300 metres. Brushed steel case, unidirectional bezel, luminous markers and a robust automatic movement — ready on land or below the surface.' },
+    { id: 5, name: 'Rose Élégance 32mm', brand: 'AURUM', category: 'Dress', price: 12200, oldPrice: 14200, movement: 'Quartz', glass: 'Mineral', water: '30M', strap: 'Italian Leather', case: 'pearl', tag: 'Gift Pick', image: px(37050003), description: 'A delicate 32mm rose-tone timepiece with a pearl dial and quartz precision. Slim, feminine and endlessly versatile — an effortless companion for everyday wear.' },
+    { id: 6, name: 'Midnight Navigator GMT', brand: 'AURUM', category: 'GMT', price: 28600, oldPrice: null, movement: 'Automatic', glass: 'Sapphire', water: '200M', strap: 'Brushed Steel', case: 'navy', tag: 'Hot', image: px(35164843), description: 'Track two time zones at a glance with the Midnight Navigator. Blue sunburst dial, sapphire glass, brushed steel bracelet and 200M water resistance — built for travel.' },
+    { id: 7, name: 'Heritage Silver Edition', brand: 'AURUM', category: 'Quartz', price: 9850, oldPrice: 11800, movement: 'Quartz', glass: 'Mineral', water: '50M', strap: 'Stainless Steel', case: 'bronze', tag: null, image: px(16739804), description: 'Everyday luxury in a silver-tone case with a clean, legible dial. Reliable quartz movement, steel bracelet and a price that makes heritage feel accessible.' },
+    { id: 8, name: 'Aurora Rose Gold Slim', brand: 'AURUM', category: 'Dress', price: 21400, oldPrice: null, movement: 'Mechanical', glass: 'Domed Sapphire', water: '50M', strap: 'Alligator Leather', case: 'rose', tag: 'New Arrival', image: px(35080771), description: 'A whisper-thin mechanical dress watch in rose gold. Domed sapphire crystal and an alligator leather strap complete a silhouette that glides under a cuff.' }
   ];
 
-  const DATA_VERSION = 2;
+  const DATA_VERSION = 3;
 
   function getProducts() {
     const raw = localStorage.getItem(K.PRODUCTS);
@@ -337,9 +338,9 @@
             '<span>' + rating + ' · ' + count + ' reviews</span>' +
           '</div>' +
           '<div class="pm-price-row"><span class="product-price pm-price">' + fmt(p.price) + '</span>' + old + save + '</div>' +
-          '<p class="pm-desc">A signature ' + p.brand + ' timepiece finished by hand — ' + p.glass.toLowerCase() +
+          '<p class="pm-desc">' + (p.description || 'A signature ' + p.brand + ' timepiece finished by hand — ' + p.glass.toLowerCase() +
             ' crystal, ' + p.movement.toLowerCase() + ' movement and a ' + p.strap.toLowerCase() + ' strap. ' +
-            'Delivered with a certificate of authenticity and 5-year warranty.</p>' +
+            'Delivered with a certificate of authenticity and 5-year warranty.') + '</p>' +
           '<div class="pm-specs"><table><tbody>' + specRows + '</tbody></table></div>' +
           '<div class="pm-buy">' +
             '<div class="qty-stepper pm-qty">' +
@@ -812,6 +813,80 @@
     toast('Thanks for your review!', 'success');
   });
 
+  /* ---------------------------- Booking requests --------------------------- */
+
+  function getBookings() {
+    return store.get(K.BOOKINGS, []);
+  }
+  function saveBookings(list) {
+    store.set(K.BOOKINGS, list);
+  }
+
+  function fillBookingWatch() {
+    const sel = $('#bkWatch');
+    if (!sel) return;
+    sel.innerHTML = '<option value="">Select a watch…</option>' + getProducts().map((p) =>
+      '<option value="' + p.id + '">' + p.name + ' — ' + fmt(p.price) + '</option>'
+    ).join('');
+  }
+
+  $('#bookingForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#bkName').value.trim();
+    const phone = $('#bkPhone').value.trim();
+    const productId = $('#bkWatch').value;
+    if (!name || !phone || !productId) {
+      toast('Please fill your name, phone and pick a watch', 'error');
+      return;
+    }
+    if (!/^01[0-9]{9}$/.test(phone.replace(/[\s-]/g, ''))) {
+      toast('Please enter a valid Bangladeshi phone number', 'error');
+      return;
+    }
+    const bookings = getBookings();
+    bookings.unshift({
+      id: Date.now(),
+      name,
+      phone,
+      productId,
+      qty: Math.max(1, Number($('#bkQty').value) || 1),
+      date: $('#bkDate').value || null,
+      notes: $('#bkNotes').value.trim() || null,
+      ts: Date.now()
+    });
+    saveBookings(bookings);
+    $('#bookingForm').reset();
+    $('#bkQty').value = '1';
+    toast('Booking request sent — we will call you soon!', 'success');
+  });
+
+  function renderBookings() {
+    const all = getBookings().slice().sort((a, b) => b.ts - a.ts);
+    $('#bkCount').textContent = all.length;
+    if (all.length === 0) {
+      $('#bookingList').innerHTML = '<p class="manage-empty">No booking requests yet.</p>';
+      return;
+    }
+    const rows = all.slice(0, 8).map((b) => {
+      const p = getProduct(b.productId);
+      const date = new Date(b.ts).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      return (
+        '<div class="orders-row">' +
+          '<span class="ord-id">' + b.name + '</span>' +
+          '<span>' + (p ? p.name : '—') + '</span>' +
+          '<span>' + b.phone + '</span>' +
+          '<span>' + b.qty + '</span>' +
+          '<span>' + date + '</span>' +
+        '</div>'
+      );
+    }).join('');
+    $('#bookingList').innerHTML =
+      '<div class="orders-table">' +
+        '<div class="orders-row orders-head"><span>Customer</span><span>Watch</span><span>Phone</span><span>Qty</span><span>Date</span></div>' +
+        rows +
+      '</div>';
+  }
+
   /* -------------------------------- Admin --------------------------------- */
 
   const adminLogin = $('#adminLogin');
@@ -838,6 +913,7 @@
     adminDash.hidden = false;
     renderStats();
     renderOrders();
+    renderBookings();
     renderManage();
   }
 
@@ -951,12 +1027,14 @@
       strap: $('#pStrap').value,
       case: $('#pCase').value,
       image: $('#pImage').value.trim() || null,
-      tag: $('#pTag').value.trim() || null
+      tag: $('#pTag').value.trim() || null,
+      description: $('#pDescription').value.trim() || null
     });
     saveProducts(list);
     renderProducts(getProducts());
     applyFilter();
     renderCompare();
+    fillBookingWatch();
     renderManage();
     renderMarquee();
     $('#addProductForm').reset();
@@ -973,6 +1051,7 @@
     renderProducts(getProducts());
     applyFilter();
     renderCompare();
+    fillBookingWatch();
     renderManage();
     renderMarquee();
     toast('Product deleted', 'success');
@@ -1023,6 +1102,7 @@
   renderProducts(getProducts());
   renderMarquee();
   renderCompare();
+  fillBookingWatch();
   renderReviews();
   renderCart();
   paintStars();

@@ -505,6 +505,19 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
 .compare-name { font-family: var(--font-serif); color: var(--heading); font-size: 1rem; }
 .compare-price { font-family: var(--font-serif); font-weight: 700; color: var(--accent); font-size: 1.05rem; }
 
+/* -------------------------------- Booking -------------------------------- */
+
+.booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: start; }
+.booking-info h3 { font-family: var(--font-serif); color: var(--heading); font-size: 1.3rem; margin-bottom: 20px; }
+.booking-perks { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+.booking-perks li { position: relative; padding-left: 30px; color: var(--text); }
+.booking-perks li::before { content: '✦'; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 1rem; }
+.booking-note { border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); padding: 20px 22px; display: flex; flex-direction: column; gap: 6px; }
+.booking-note strong { font-family: var(--font-serif); color: var(--heading); font-size: 1.05rem; }
+.booking-note span { color: var(--muted); font-size: 0.92rem; }
+.booking-note a { color: var(--accent); font-weight: 700; }
+.booking-form { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+
 /* -------------------------------- Payment -------------------------------- */
 
 .payment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
@@ -1012,7 +1025,7 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
 .pm-price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .pm-price { font-size: 1.7rem; }
 .pm-save { font-size: 0.8rem; font-weight: 800; color: var(--success); }
-.pm-desc { color: var(--muted); font-size: 0.92rem; }
+.pm-desc { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
 .pm-specs table { width: 100%; border-collapse: collapse; }
 .pm-specs th, .pm-specs td { padding: 8px 6px; border-bottom: 1px solid var(--border-soft); text-align: left; font-size: 0.86rem; }
 .pm-specs th { color: var(--muted); font-weight: 600; width: 46%; }
@@ -1077,6 +1090,7 @@ section { scroll-margin-top: calc(var(--header-h) + 16px); }
   .compare-selects { flex-direction: column; align-items: stretch; }
   .compare-pick { max-width: none; }
   .compare-vs { text-align: center; padding: 0; transform: rotate(90deg); }
+  .booking-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
 @media (max-width: 560px) {
