@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AURUM — Premium luxury watches handcrafted in Bangladesh. Swiss movements, sapphire glass, delivered across Dhaka and beyond.">
+  <title>AURUM | Luxury Watches — Premium Timepieces in Bangladesh</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%23c9a35c'/><circle cx='50' cy='50' r='34' fill='%2311141d'/><rect x='47' y='36' width='6' height='22' rx='2' fill='%23c9a35c'/><rect x='38' y='47' width='22' height='6' rx='2' fill='%23c9a35c'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="announce-bar">
+    <div class="container announce-inner">
+      <span class="announce-dot"></span>
+      <p>Complimentary delivery across Dhaka &amp; Chattogram</p>
+      <span class="announce-divider">•</span>
+      <p>10% cashback on bKash payments</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#home" class="brand" aria-label="AURUM home">
+          <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle cx="24" cy="24" r="14" fill="var(--accent)"/>
+            <rect x="22" y="16" width="4" height="10" rx="1.5" fill="var(--bg)"/>
+            <rect x="18" y="22" width="12" height="4" rx="1.5" fill="var(--bg)"/>
+          </svg>
+          <span class="brand-text">AURUM<span class="brand-sub">Luxury Watches</span></span>
+        </a>
+
+        <nav class="main-nav" id="mainNav" aria-label="Primary">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#products" class="nav-link">Collection</a>
+          <a href="#compare" class="nav-link">Compare</a>
+          <a href="#payment" class="nav-link">Payment</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#admin" class="nav-link">Admin</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle day / night mode" title="Toggle theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="4.5"/>
+              <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+              <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn cart-toggle" id="cartToggle" type="button" aria-label="Open shopping cart" title="Cart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z"/>
+              <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
+            </svg>
+            <span class="cart-badge" id="cartCount" hidden>0</span>
+          </button>
+
+          <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span class="burger"><i></i><i></i><i></i></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="search-row">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="search" id="searchInput" placeholder="Search watches, brands, movements…" autocomplete="off">
+          <button class="search-clear" id="searchClear" type="button" aria-label="Clear search" hidden>×</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#products" class="nav-link">Collection</a>
+      <a href="#compare" class="nav-link">Compare</a>
+      <a href="#payment" class="nav-link">Payment</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#admin" class="nav-link">Admin</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">New Season · 2026 Collection</span>
+          <h1 class="hero-title">Time,<br>Crafted into <span class="hero-accent">Elegance</span>.</h1>
+          <p class="hero-tagline">Hand-finished timepieces with sapphire glass and Swiss movements — engineered in Bangladesh, designed for the world.</p>
+          <div class="hero-cta">
+            <a href="#products" class="btn btn-primary">Shop Now
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#products" class="btn btn-ghost">Explore Collection</a>
+          </div>
+          <ul class="hero-stats">
+            <li><strong>12K+</strong><span>Happy customers</span></li>
+            <li><strong>4.9★</strong><span>Average rating</span></li>
+            <li><strong>5Yr</strong><span>Movement warranty</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-ring hero-ring-outer"></div>
+          <div class="hero-ring hero-ring-inner"></div>
+          <svg class="hero-watch" viewBox="0 0 640 640" role="img" aria-label="AURUM signature luxury watch">
+            <g opacity="0.5">
+              <circle cx="320" cy="320" r="236" fill="none" stroke="var(--accent)" stroke-opacity="0.22" stroke-width="2"/>
+              <circle cx="320" cy="320" r="212" fill="none" stroke="var(--accent)" stroke-opacity="0.14" stroke-width="1.5"/>
+            </g>
+            <path d="M262 250 L262 96 Q262 70 288 70 L352 70 Q378 70 378 96 L378 250 Z" fill="var(--strap)"/>
+            <path d="M262 390 L262 544 Q262 570 288 570 L352 570 Q378 570 378 544 L378 390 Z" fill="var(--strap)"/>
+            <rect x="278" y="70" width="84" height="180" rx="10" fill="none" stroke="var(--accent)" stroke-opacity="0.28" stroke-width="2"/>
+            <rect x="278" y="390" width="84" height="180" rx="10" fill="none" stroke="var(--accent)" stroke-opacity="0.28" stroke-width="2"/>
+            <rect x="258" y="236" width="124" height="26" rx="9" fill="var(--case-dark)"/>
+            <rect x="258" y="378" width="124" height="26" rx="9" fill="var(--case-dark)"/>
+            <rect x="442" y="300" width="28" height="40" rx="9" fill="var(--accent)"/>
+            <rect x="470" y="312" width="12" height="16" rx="4" fill="var(--case-dark)"/>
+            <circle cx="320" cy="320" r="142" fill="var(--accent)"/>
+            <circle cx="320" cy="320" r="130" fill="var(--case-dark)"/>
+            <circle cx="320" cy="320" r="120" fill="var(--dial)"/>
+            <g class="hero-markers">
+              <circle cx="320" cy="206" r="12" fill="var(--accent)"/>
+              <circle cx="320" cy="434" r="12" fill="var(--accent)"/>
+              <circle cx="206" cy="320" r="12" fill="var(--accent)"/>
+              <circle cx="434" cy="320" r="12" fill="var(--accent)"/>
+              <circle cx="262" cy="262" r="6" fill="var(--hand)" opacity="0.55"/>
+              <circle cx="378" cy="262" r="6" fill="var(--hand)" opacity="0.55"/>
+              <circle cx="262" cy="378" r="6" fill="var(--hand)" opacity="0.55"/>
+              <circle cx="378" cy="378" r="6" fill="var(--hand)" opacity="0.55"/>
+            </g>
+            <g class="hero-hand hero-hand-hour">
+              <line x1="320" y1="320" x2="320" y2="244" stroke="var(--hand)" stroke-width="9" stroke-linecap="round"/>
+            </g>
+            <g class="hero-hand hero-hand-min">
+              <line x1="320" y1="320" x2="362" y2="322" stroke="var(--hand)" stroke-width="6" stroke-linecap="round"/>
+            </g>
+            <circle cx="320" cy="320" r="10" fill="var(--accent)"/>
+            <circle cx="320" cy="320" r="4" fill="var(--bg)"/>
+            <text x="320" y="430" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="7" fill="var(--accent)">AURUM</text>
+            <text x="320" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" letter-spacing="3.5" fill="var(--hand)" opacity="0.6">SWISS · AUTOMATIC</text>
+          </svg>
+          <div class="hero-chip hero-chip-tl">
+            <span class="chip-icon">◆</span>
+            <span><strong>Sapphire Glass</strong><small>Scratch resistant</small></span>
+          </div>
+          <div class="hero-chip hero-chip-br">
+            <span class="chip-icon">●</span>
+            <span><strong>100% Genuine</strong><small>5 year warranty</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero-scroll">
+        <a href="#products" class="scroll-cue" aria-label="Scroll to collection">
+          <span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="product-marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack"></div>
+      </div>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Collection</span>
+          <h2 class="section-title">Signature Timepieces</h2>
+          <p class="section-sub">Eight curated silhouettes. Every watch is inspected by hand and delivered with a certificate of authenticity.</p>
+        </div>
+        <p class="result-info" id="resultInfo" hidden></p>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        <div class="no-results" id="noResults" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M8.5 11h5"/></svg>
+          <h3>No watches found</h3>
+          <p>Try a different keyword — such as <em>“automatic”</em>, <em>“sapphire”</em> or a brand name.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="compare">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Side by Side</span>
+          <h2 class="section-title">Compare Watches</h2>
+          <p class="section-sub">Select two or three timepieces and weigh their specifications before you decide.</p>
+        </div>
+
+        <div class="compare-selects">
+          <div class="compare-pick">
+            <label for="compareA">Watch A</label>
+            <select id="compareA"></select>
+          </div>
+          <span class="compare-vs">VS</span>
+          <div class="compare-pick">
+            <label for="compareB">Watch B</label>
+            <select id="compareB"></select>
+          </div>
+          <span class="compare-vs">VS</span>
+          <div class="compare-pick">
+            <label for="compareC">Watch C</label>
+            <select id="compareC"></select>
+          </div>
+        </div>
+
+        <div class="compare-table-wrap" id="compareTableWrap">
+          <table class="compare-table">
+            <thead id="compareHead"></thead>
+            <tbody id="compareBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="payment">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Flexible &amp; Secure</span>
+          <h2 class="section-title">Payment Options</h2>
+          <p class="section-sub">Pay the way you like. All major Bangladeshi gateways supported, with instant confirmation.</p>
+        </div>
+
+        <div class="payment-grid">
+          <article class="payment-card">
+            <span class="payment-logo bKash">bKash</span>
+            <h3>bKash</h3>
+            <p>Send Money to our personal number — instant confirmation and 10% cashback on orders over ৳ 5,000.</p>
+            <div class="payment-phone">Personal: <strong>01858-533944</strong></div>
+            <span class="payment-meta">Mobile Money</span>
+          </article>
+          <article class="payment-card">
+            <span class="payment-logo Nagad">Nagad</span>
+            <h3>Nagad</h3>
+            <p>Fast transfers with zero hidden charges. Send Money directly to our personal number.</p>
+            <div class="payment-phone">Personal: <strong>01858-533944</strong></div>
+            <span class="payment-meta">Mobile Money</span>
+          </article>
+          <article class="payment-card">
+            <span class="payment-logo Rocket">Rocket</span>
+            <h3>Rocket</h3>
+            <p>Trusted Dutch-Bangla service. Number 01712-345678 (Merchant).</p>
+            <span class="payment-meta">Mobile Money</span>
+          </article>
+          <article class="payment-card">
+            <span class="payment-logo Upay">Upay</span>
+            <h3>Upay</h3>
+            <p>Send money instantly with the Upay wallet — no fees for our customers.</p>
+            <span class="payment-meta">Mobile Money</span>
+          </article>
+          <article class="payment-card">
+            <span class="payment-logo Cards">VISA<small>·MC</small></span>
+            <h3>Visa &amp; Mastercard</h3>
+            <p>International &amp; local debit/credit cards accepted via SSL-compliant gateway.</p>
+            <span class="payment-meta">Card Payment</span>
+          </article>
+          <article class="payment-card">
+            <span class="payment-logo COD">COD</span>
+            <h3>Cash on Delivery</h3>
+            <p>Pay when your watch arrives. Available across all 64 districts of Bangladesh.</p>
+            <span class="payment-meta">Cash</span>
+          </article>
+        </div>
+
+        <div class="payment-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p><strong>Secure checkout.</strong> Every transaction is encrypted. No extra fees, ever — prices shown in BDT (৳) include all taxes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Loved by Customers</span>
+          <h2 class="section-title">What They Say</h2>
+          <p class="section-sub">Real feedback from verified AURUM buyers across Bangladesh.</p>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid"></div>
+
+        <div class="review-form-wrap">
+          <h3>Share your experience</h3>
+          <p class="review-form-sub">Your name, rating and a few words — we read every single review.</p>
+          <form id="reviewForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="reviewName">Your name</label>
+                <input type="text" id="reviewName" placeholder="e.g. Rahim Uddin" required>
+              </div>
+              <div class="field">
+                <label>Your rating</label>
+                <div class="star-picker" id="starPicker" role="radiogroup" aria-label="Select star rating">
+                  <button type="button" class="star-btn" data-value="5" aria-label="5 stars">★</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 stars">★</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 stars">★</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 stars">★</button>
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 star">★</button>
+                  <span class="star-picker-label" id="starPickerLabel">5 — Excellent</span>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="reviewComment">Your comment</label>
+              <textarea id="reviewComment" rows="4" placeholder="Tell us about the quality, delivery and packaging…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="admin">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Store Control</span>
+          <h2 class="section-title">Admin Dashboard</h2>
+          <p class="section-sub">Simulated dashboard for managing the boutique — sales summary, product CRUD and order analytics.</p>
+        </div>
+
+        <div class="admin-login" id="adminLogin">
+          <div class="admin-lock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15" r="1.4" fill="currentColor"/></svg>
+          </div>
+          <h3>Restricted area</h3>
+          <p>Enter the admin passcode to open the dashboard.</p>
+          <form id="adminLoginForm" class="admin-login-form">
+            <input type="password" id="adminPassword" placeholder="Admin passcode" autocomplete="off" required>
+            <button type="submit" class="btn btn-primary">Unlock</button>
+          </form>
+          <p class="admin-hint">Demo passcode: <code>aurum2024</code></p>
+          <p class="admin-error" id="adminError" hidden>Incorrect passcode. Try again.</p>
+        </div>
+
+        <div class="admin-dash" id="adminDash" hidden>
+          <div class="admin-dash-head">
+            <div>
+              <h3>Overview</h3>
+              <p>Live summary of the boutique (simulated).</p>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="adminLogout" type="button">Lock dashboard</button>
+          </div>
+
+          <div class="stat-grid" id="adminStats">
+            <div class="stat-card"><span class="stat-label">Total Orders</span><strong class="stat-value" id="statOrders">0</strong><span class="stat-foot">all time</span></div>
+            <div class="stat-card"><span class="stat-label">Total Sales</span><strong class="stat-value" id="statRevenue">৳ 0</strong><span class="stat-foot">gross revenue</span></div>
+            <div class="stat-card"><span class="stat-label">Watches Sold</span><strong class="stat-value" id="statItems">0</strong><span class="stat-foot">units shipped</span></div>
+            <div class="stat-card"><span class="stat-label">Avg. Order Value</span><strong class="stat-value" id="statAvg">৳ 0</strong><span class="stat-foot">per order</span></div>
+          </div>
+
+          <div class="admin-cols">
+            <div class="admin-panel">
+              <h3 class="panel-title">Add new product</h3>
+              <form id="addProductForm">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pTitle">Watch title *</label>
+                    <input type="text" id="pTitle" placeholder="e.g. Titanium Aviator" required>
+                  </div>
+                  <div class="field">
+                    <label for="pBrand">Brand *</label>
+                    <input type="text" id="pBrand" placeholder="e.g. AURUM" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pPrice">Price (BDT) *</label>
+                    <input type="number" id="pPrice" min="1" step="50" placeholder="e.g. 24000" required>
+                  </div>
+                  <div class="field">
+                    <label for="pCategory">Category</label>
+                    <select id="pCategory">
+                      <option>Automatic</option>
+                      <option>Chronograph</option>
+                      <option>Diver</option>
+                      <option>Dress</option>
+                      <option>GMT</option>
+                      <option>Quartz</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pImage">Image URL</label>
+                    <input type="url" id="pImage" placeholder="https://… (optional — auto art if empty)">
+                  </div>
+                  <div class="field">
+                    <label for="pCase">Case finish</label>
+                    <select id="pCase">
+                      <option value="gold">Gold</option>
+                      <option value="rose">Rose Gold</option>
+                      <option value="silver">Silver</option>
+                      <option value="navy">Navy Dial</option>
+                      <option value="black">Black</option>
+                      <option value="pearl">Pearl</option>
+                      <option value="bronze">Bronze</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pMovement">Movement</label>
+                    <select id="pMovement">
+                      <option>Automatic</option>
+                      <option>Quartz</option>
+                      <option>Mechanical</option>
+                      <option>Hybrid</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="pGlass">Glass</label>
+                    <select id="pGlass">
+                      <option>Sapphire</option>
+                      <option>Domed Sapphire</option>
+                      <option>Mineral</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pWater">Water resistance</label>
+                    <select id="pWater">
+                      <option>30M</option>
+                      <option>50M</option>
+                      <option>100M</option>
+                      <option>300M</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="pStrap">Strap material</label>
+                    <select id="pStrap">
+                      <option>Italian Leather</option>
+                      <option>Stainless Steel</option>
+                      <option>Brushed Steel</option>
+                      <option>Alligator Leather</option>
+                      <option>Rubber</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="pTag">Badge tag</label>
+                  <input type="text" id="pTag" placeholder="e.g. New Arrival (optional)">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Add to Collection</button>
+              </form>
+            </div>
+
+            <div class="admin-panel">
+              <h3 class="panel-title">Manage products <span class="panel-count" id="manageCount">0</span></h3>
+              <div class="manage-list" id="productManageList"></div>
+            </div>
+
+            <div class="admin-panel admin-orders">
+              <h3 class="panel-title">Recent orders <span class="panel-count" id="ordersCount">0</span></h3>
+              <div class="orders-list" id="ordersList"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand">
+            <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true">
+              <circle cx="24" cy="24" r="22" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+              <circle cx="24" cy="24" r="14" fill="var(--accent)"/>
+              <rect x="22" y="16" width="4" height="10" rx="1.5" fill="var(--bg)"/>
+              <rect x="18" y="22" width="12" height="4" rx="1.5" fill="var(--bg)"/>
+            </svg>
+            <span class="brand-text">AURUM<span class="brand-sub">Luxury Watches</span></span>
+          </a>
+          <p>Premium timepieces crafted with obsession — delivered to every district in Bangladesh.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.6-.1-1.4-.2-2.3-.2-2.3 0-3.8 1.4-3.8 3.9V11H8v3h2.3v7h3.2Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></a>
+            <a href="#" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .6-.2 1.4Z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#home">Home</a>
+          <a href="#products">Collection</a>
+          <a href="#compare">Compare Watches</a>
+          <a href="#payment">Payment Options</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <a href="#payment">Shipping &amp; Delivery</a>
+          <a href="#payment">Return &amp; Exchange</a>
+          <a href="#payment">Warranty Policy</a>
+          <a href="#payment">Size Guide</a>
+          <a href="#admin">Store Admin</a>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>Contact Us</h4>
+          <a href="tel:+8801712345678">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+            +880 1712-345678
+          </a>
+          <a href="mailto:care@aurum-watches.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3 7 9 6 9-6"/></svg>
+            care@aurum-watches.com
+          </a>
+          <a href="#" class="footer-addr">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Gulshan Avenue, Dhaka 1212, Bangladesh
+          </a>
+          <div class="footer-hours">Sat–Thu: 10:00 AM – 9:00 PM</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> AURUM Luxury Watches. All rights reserved. Made with <span class="heart">♥</span> in Bangladesh.</p>
+        <div class="footer-pay">
+          <span>bKash</span><span>Nagad</span><span>Rocket</span><span>Upay</span><span>VISA</span><span>COD</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h3>Your Cart <span class="cart-head-count" id="cartHeadCount">0 items</span></h3>
+      <button class="icon-btn" id="cartClose" type="button" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.2 12.2a1.8 1.8 0 0 1-1.8 1.8H6.6a1.8 1.8 0 0 1-1.8-1.8L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        <p>Your cart is empty.</p>
+        <a href="#products" class="btn btn-ghost btn-sm" id="cartEmptyShop">Browse collection</a>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-foot" id="cartFoot">
+      <div class="cart-summary">
+        <div class="cart-row"><span>Subtotal</span><strong id="cartSubtotal">৳ 0</strong></div>
+        <div class="cart-row"><span>Delivery</span><strong>Free</strong></div>
+        <div class="cart-row cart-total"><span>Total</span><strong id="cartTotal">৳ 0</strong></div>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn" type="button">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay" hidden></div>
+
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" hidden>
+    <div class="modal-card">
+      <button class="icon-btn modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <span class="eyebrow">Secure Checkout</span>
+      <h3 id="checkoutTitle">Order Summary</h3>
+      <div class="checkout-list" id="checkoutList"></div>
+      <div class="checkout-total-row">
+        <span>Total payable</span>
+        <strong id="checkoutTotal">৳ 0</strong>
+      </div>
+      <p class="checkout-note">Pay via bKash, Nagad, Rocket, Upay, card or Cash on Delivery after confirmation.</p>
+      <div class="checkout-actions">
+        <button class="btn btn-ghost" id="checkoutBack" type="button">Back to cart</button>
+        <button class="btn btn-primary" id="placeOrderBtn" type="button">Place Order</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
