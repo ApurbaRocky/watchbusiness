@@ -3,6 +3,8 @@
    Vanilla CSS · CSS Variables · Day / Night themes
    ========================================================================== */
 
+[hidden] { display: none !important; }
+
 :root {
   --bg: #0b0e15;
   --bg-soft: #10141e;
